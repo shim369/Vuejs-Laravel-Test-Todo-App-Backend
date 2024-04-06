@@ -17,4 +17,15 @@ class TaskController extends Controller
             ]
         );
     }
+
+    public function saveTask(Request $request) {
+        $task = new Task();
+        $task->name = $request->name;
+        $task->completed = $request->completed;
+        $task->save();
+        return response()->json([
+            'message' => 'Contact created Successfully!',
+            'code' => 200
+        ]);
+    }
 }
