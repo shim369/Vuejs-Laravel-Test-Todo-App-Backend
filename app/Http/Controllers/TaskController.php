@@ -53,7 +53,7 @@ class TaskController extends Controller
     public function updateTask($id, Request $request) {
         $task = Task::where('id', $id)->first();
         $task->name = $request->name;
-        $task->completed = $request->completed ?? false;
+        $task->completed = $request->completed;
         $task->save();
         return response()->json([
             'message' => 'Task Updated Successfully!',
