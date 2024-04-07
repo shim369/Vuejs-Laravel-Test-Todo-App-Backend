@@ -18,6 +18,11 @@ class TaskController extends Controller
         );
     }
 
+    public function getTask($id) {
+        $task = Task::find($id);
+        return response()->json($task);
+    }
+
     public function saveTask(Request $request) {
         $task = new Task();
         $task->name = $request->name;
