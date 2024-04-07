@@ -13,3 +13,6 @@ Route::post('save_task',
 
 Route::delete('delete_task/{id}',
 [App\Http\Controllers\TaskController::class, 'deleteTask']);
+
+Route::post('update_task/{id}',
+[App\Http\Controllers\TaskController::class, 'updateTask']);
