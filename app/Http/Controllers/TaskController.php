@@ -24,8 +24,24 @@ class TaskController extends Controller
         $task->completed = $request->completed ?? false;
         $task->save();
         return response()->json([
-            'message' => 'Contact created Successfully!',
+            'message' => 'Task Created Successfully!',
             'code' => 200
         ]);
+    }
+
+    public function deleteTask($id) {
+        $task = Task::find($id);
+        if($task) {
+            $task->delete();
+            return response()->json([
+                'message' => 'Task Deleted Successfully!',
+                'code' => 200
+            ]);
+        } else {
+            return response()->json([
+                'message' => "Task width id:$id does not exits",
+                'code' => 200
+            ]);
+        }
     }
 }
